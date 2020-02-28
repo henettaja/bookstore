@@ -1,9 +1,19 @@
 package hh.swd20.kirjakauppa.tehtC24.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
 
     private String title, author, year, ISBN;
     private double price;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     public Book (String title, String author, String year, String ISBN, double price) {
 
@@ -12,7 +22,17 @@ public class Book {
         this.year = year;
         this.ISBN = ISBN;
         this.price = price;
+        this.id = 0;
 
+    }
+
+    public Book () {
+        this.title = null;
+        this.author = null;
+        this.year = null;
+        this.ISBN = null;
+        this.price = 0;
+        this.id = 0;
     }
 
     public String getTitle() {
