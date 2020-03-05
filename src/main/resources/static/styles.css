@@ -1,0 +1,24 @@
+#list {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td:nth-last-child(2) {
+    border-left: 1px solid lightgray;
+}
+
+
+th:last-child {
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+
+#button {
+    margin-top: 20px;
+}
+
+#wrapper {
+    text-align: center;
+    padding-left: 50px;
+}

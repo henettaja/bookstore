@@ -28,18 +28,20 @@ public class TehtC24Application {
 			categoryRepository.save(new Category("Culture"));
 			categoryRepository.save(new Category("Sci-fi"));
 			categoryRepository.save(new Category("Horror"));
+			categoryRepository.save(new Category("Comedy"));
+
 			for (Category cat : categoryRepository.findAll()) {
 				log.info(cat.toString());
 			}
 
-			/*
-			bookRepository.save(new Book("Tesla", "Matts Johansson", categoryRepository.findByName("Horror").get(0),1994, "2100-2345-113", 54.50));
-			bookRepository.save(new Book("Saving Private Ryan", "Lord Hansel",  categoryRepository.findByName("Literature").get(0), 1999, "2833-2345-112",69.50));
-			bookRepository.save(new Book("How to code", "Henri Väisänen", categoryRepository.findByName("Sci-fi").get(0), 2020, "1010-1010-101", 199.50));
+
+			bookRepository.save(new Book("Tesla", "Matts Johansson", categoryRepository.findByName("Horror").get(0),"1994", "2100-2345-113", 54.50));
+			bookRepository.save(new Book("Saving Private Ryan", "Lord Hansel",  categoryRepository.findByName("Literature").get(0), "1999", "2833-2345-112",69.50));
+			bookRepository.save(new Book("How to code", "Henri Väisänen", categoryRepository.findByName("Sci-fi").get(0), "2020", "1010-1010-101", 199.50));
 			log.info("Fetch all books and their information...");
 			for (Book book : bookRepository.findAll()) {
 				log.info(book.toString());
-			}*/
+			}
 		};
 	}
 }

@@ -3,28 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Add book</title>
+
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.amber-red.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="../styles.css"/>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
 </head>
 <body>
 
-<h1>Add book</h1>
+<div id="wrapper">
+
+<h3>Add book</h3>
 
 <form th:object="${book}" th:action="@{save}" action="#" method="post">
 
-    <label for="title">Title</label><input type="text" th:field="*{title}" id="title"> <br>
-    <label for="author">Author</label><input type="text" th:field="*{author}" id="author"> <br>
-    <label for="ISBN">ISBN</label><input type="text" th:field="*{ISBN}" id="ISBN"> <br>
-    <label for="year">Year</label><input type="text" th:field="*{year}" id="year"> <br>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label" for="sample1">Title</label><input class="mdl-textfield__input" type="text" id="sample1" th:field="*{title}">
+    </div>
+    <br>
 
-    <label for="categoryList">Department</label>
-    <select id="categoryList" th:field="*{category}" class="form-control">
-        <option th:each="category: ${categories}"
-                th:value="${category.id}"
-                th:text="${category.name}"></option>
-    </select>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="sample2">Author</label><input class="mdl-textfield__input" type="text" id="sample2" th:field="*{author}">
+    </div>
+    <br>
 
-    <button type="submit">Save</button>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="sample3">ISBN</label><input class="mdl-textfield__input" type="text" id="sample3" th:field="*{ISBN}">
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <label class="mdl-textfield__label" for="sample4">Year</label><input class="mdl-textfield__input" type="text" id="sample4" th:field="*{year}">
+    </div>
+    <br>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <select th:field="*{category}" class="mdl-textfield__input" id="categoryList">
+            <option value=""></option>
+            <option th:each="category: ${categories}"
+                    th:value="${category.id}"
+                    th:text="${category.name}"></option>
+        </select>
+        <label class="mdl-textfield__label" for="categoryList">Category</label>
+    </div>
+
+    <br>
+
+    <button id="button" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Save</button>
 
 </form>
+
+</div>
 
 </body>
 </html>

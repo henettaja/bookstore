@@ -69,6 +69,7 @@ public class BookController {
     public String editbook (@PathVariable ("id") Long bookid, Model model) {
 
         model.addAttribute("book", bookRepository.findById(bookid));
+        model.addAttribute("categories", categoryRepository.findAll());
 
         return "editbook"; //booklist.html
     }
