@@ -1,11 +1,14 @@
 package hh.swd20.kirjakauppa.tehtC24.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
 public class Book {
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn
     private Category category;
 
