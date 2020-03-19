@@ -26,10 +26,13 @@ auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEn
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .authorizeRequests().antMatchers("/static/**").permitAll()
+                .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/booklist")
                 .permitAll()
                 .and()
                 .logout()

@@ -8,6 +8,10 @@ td:nth-last-child(2) {
     border-left: 1px solid lightgray;
 }
 
+td:last-child {
+    border-right: 1px solid lightgray;
+}
+
 
 th:last-child {
     border-right: 1px solid lightgray;

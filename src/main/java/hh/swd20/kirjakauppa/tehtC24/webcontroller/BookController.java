@@ -25,16 +25,6 @@ public class BookController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @RequestMapping("/login")
-    public String login() {
-        return "login"; //login.html
-    }
-
-    @RequestMapping("/logout")
-    public String logout() {
-        return "login"; //login.html
-    }
-
     @RequestMapping("/index")
     public String bookstore () {
 
