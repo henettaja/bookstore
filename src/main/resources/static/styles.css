@@ -20,5 +20,6 @@ th:last-child {
 
 #wrapper {
     text-align: center;
-    padding-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }

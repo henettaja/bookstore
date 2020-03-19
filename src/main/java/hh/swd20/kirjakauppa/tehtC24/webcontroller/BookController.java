@@ -6,6 +6,7 @@ import hh.swd20.kirjakauppa.tehtC24.domain.Category;
 import hh.swd20.kirjakauppa.tehtC24.domain.CategoryRepository;
 import org.h2.engine.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,16 @@ public class BookController {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login"; //login.html
+    }
+
+    @RequestMapping("/logout")
+    public String logout() {
+        return "login"; //login.html
+    }
 
     @RequestMapping("/index")
     public String bookstore () {
@@ -58,6 +69,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('ADMIN')")
     public String deletebook (@PathVariable ("id") Long bookid) {
 
         bookRepository.deleteById(bookid);
